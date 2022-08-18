@@ -1,0 +1,33 @@
+{
+    "name": "batman-api",
+    "version": "1.0.0",
+    "description": "A Node.js Back-End application built with Express.js and Mongoose, using MongoDB to store data.",
+    "main": "app.js",
+    "type": "module",
+    "scripts": {
+        "test": "echo \"Error: no test specified\" && exit 1"
+    },
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/pedrocasteli/Batman-API.git"
+    },
+    "keywords": [
+        "node",
+        "express",
+        "mongoose",
+        "mongo",
+        "mongodb",
+        "backend",
+        "javascript"
+    ],
+    "author": "Pedro Marchetti Casteli",
+    "license": "ISC",
+    "bugs": {
+        "url": "https://github.com/pedrocasteli/Batman-API/issues"
+    },
+    "homepage": "https://github.com/pedrocasteli/Batman-API#readme",
+    "dependencies": {
+        "dotenv": "^16.0.1",
+        "express": "^4.18.1"
+    }
+}

@@ -1,0 +1,20 @@
+[
+    {
+        "name": "Batman",
+        "real_name": "Bruce Wayne",
+        "gender": "male",
+        "base_of_operations": "Gotham City"
+    },
+    {
+        "name": "Catwoman",
+        "real_name": "Selina Kyle",
+        "gender": "female",
+        "base_of_operations": "Gotham City"
+    },
+    {
+        "name": "Batgirl",
+        "real_name": "Barbara Gordon",
+        "gender": "female",
+        "base_of_operations": "Gotham City"
+    }
+]
