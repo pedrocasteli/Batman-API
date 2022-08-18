@@ -1,10 +1,14 @@
 import fs from "fs";
 import express from "express";
+import morgan from "morgan";
 import "dotenv/config";
 
 const app = express();
 
-// This is called a MIDDLEWARE, because it goes BETWEEN the request and the response. This middleware in particular, adds the body data to the request object.
+// 1) Middlewares ################################################################################################
+
+app.use(morgan("dev"));
+
 app.use(express.json());
 
 app.use((req, res, next) => {
@@ -13,6 +17,8 @@ app.use((req, res, next) => {
 });
 
 const heroes = JSON.parse(fs.readFileSync("./dev-data/data/heroes.json"));
+
+// 2) Route handlers ###############################################################################################3
 
 const getAllHeroes = (req, res) => {
     res.status(200).json({
@@ -71,11 +77,15 @@ const deleteHero = (req, res) => {
     });
 };
 
+// 3) Routes ##############################################################################################
+
 app.route("/api/v1/heroes").get(getAllHeroes).post(insertHero);
 app.route("/api/v1/heroes/:id")
     .get(getHero)
     .patch(updateHero)
     .delete(deleteHero);
+
+// 3) Start server ########################################################################################
 
 const port = process.env.PORT || 3001;
 app.listen(port, () => {
