@@ -1,17 +1,20 @@
 [
     {
+        "id": 1,
         "name": "Joker",
         "real_name": "unknown",
         "gender": "male",
         "base_of_operations": "Gotham City"
     },
     {
+        "id": 2,
         "name": "Harley Quinn",
         "real_name": "Harleen Quinzel",
         "gender": "female",
         "base_of_operations": "Gotham City"
     },
     {
+        "id": 3,
         "name": "Poison Ivy",
         "real_name": "Pamela Lillian",
         "gender": "female",
