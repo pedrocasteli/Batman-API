@@ -113,18 +113,21 @@ const deleteVillain = (req, res) => {
 };
 
 // 3) Routes ##############################################################################################
+const heroRouter = express.Router();
+const villainRouter = express.Router();
 
-app.route("/api/v1/heroes").get(getAllHeroes).post(insertNewHero);
-app.route("/api/v1/heroes/:id")
-    .get(getHero)
-    .patch(updateHero)
-    .delete(deleteHero);
+heroRouter.route("/").get(getAllHeroes).post(insertNewHero);
+heroRouter.route("/:id").get(getHero).patch(updateHero).delete(deleteHero);
 
-app.route("/api/v1/villains").get(getAllVillains).post(insertNewVillain);
-app.route("/api/v1/villains/:id")
+villainRouter.route("/").get(getAllVillains).post(insertNewVillain);
+villainRouter
+    .route("/:id")
     .get(getVillain)
     .patch(updateVillain)
     .delete(deleteVillain);
+
+app.use("/api/v1/heroes", heroRouter);
+app.use("/api/v1/villains", villainRouter);
 
 // 3) Start server ########################################################################################
 
