@@ -42,7 +42,7 @@ const getHero = (req, res) => {
     });
 };
 
-const insertHero = (req, res) => {
+const insertNewHero = (req, res) => {
     const newId = heroes[heroes.length - 1].id + 1;
     const newHero = Object.assign({ id: newId }, req.body);
 
@@ -77,13 +77,54 @@ const deleteHero = (req, res) => {
     });
 };
 
+const getAllVillains = (req, res) => {
+    res.status(500).json({
+        status: "error",
+        message: "This route is not yet defined",
+    });
+};
+
+const insertNewVillain = (req, res) => {
+    res.status(500).json({
+        status: "error",
+        message: "This route is not yet defined",
+    });
+};
+
+const getVillain = (req, res) => {
+    res.status(500).json({
+        status: "error",
+        message: "This route is not yet defined",
+    });
+};
+
+const updateVillain = (req, res) => {
+    res.status(500).json({
+        status: "error",
+        message: "This route is not yet defined",
+    });
+};
+
+const deleteVillain = (req, res) => {
+    res.status(500).json({
+        status: "error",
+        message: "This route is not yet defined",
+    });
+};
+
 // 3) Routes ##############################################################################################
 
-app.route("/api/v1/heroes").get(getAllHeroes).post(insertHero);
+app.route("/api/v1/heroes").get(getAllHeroes).post(insertNewHero);
 app.route("/api/v1/heroes/:id")
     .get(getHero)
     .patch(updateHero)
     .delete(deleteHero);
+
+app.route("/api/v1/villains").get(getAllVillains).post(insertNewVillain);
+app.route("/api/v1/villains/:id")
+    .get(getVillain)
+    .patch(updateVillain)
+    .delete(deleteVillain);
 
 // 3) Start server ########################################################################################
 
