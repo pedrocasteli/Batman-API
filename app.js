@@ -7,11 +7,17 @@ const app = express();
 // This is called a MIDDLEWARE, because it goes BETWEEN the request and the response. This middleware in particular, adds the body data to the request object.
 app.use(express.json());
 
+app.use((req, res, next) => {
+    req.requestTime = new Date().toISOString();
+    next();
+});
+
 const heroes = JSON.parse(fs.readFileSync("./dev-data/data/heroes.json"));
 
 const getAllHeroes = (req, res) => {
     res.status(200).json({
         status: "success",
+        requestedAt: req.requestTime,
         results: heroes.length,
         data: { heroes: heroes },
     });
