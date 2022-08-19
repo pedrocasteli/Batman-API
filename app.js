@@ -1,6 +1,8 @@
 import express from "express";
 import morgan from "morgan";
-import "dotenv/config";
+import dotenv from "dotenv";
+
+dotenv.config({ path: "./.env" });
 
 import heroRouter from "./routes/heroRoutes.js";
 import villainRouter from "./routes/villainRoutes.js";
@@ -9,7 +11,9 @@ const app = express();
 
 // 1) Middlewares ################################################################################################
 
-app.use(morgan("dev"));
+if (process.env.NODE_ENV === "development") {
+    app.use(morgan("dev"));
+}
 
 app.use(express.json());
 
