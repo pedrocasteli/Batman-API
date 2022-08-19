@@ -2,6 +2,14 @@ import fs from "fs";
 
 const heroes = JSON.parse(fs.readFileSync("./dev-data/data/heroes.json"));
 
+export const checkID = (req, res, next, val) => {
+    console.log(`==> Hero ID: ${val}`);
+    if (req.params.id * 1 > heroes.length) {
+        return res.status(404).json({ status: "fail", message: "Invalid ID" });
+    }
+    next();
+};
+
 export const getAllHeroes = (req, res) => {
     res.status(200).json({
         status: "success",
@@ -13,10 +21,6 @@ export const getAllHeroes = (req, res) => {
 
 export const getHero = (req, res) => {
     const hero = heroes.find((el) => el.id === req.params.id * 1);
-
-    if (!hero) {
-        return res.status(404).json({ status: "fail", message: "Invalid ID" });
-    }
 
     res.status(200).json({
         status: "success",
@@ -36,10 +40,6 @@ export const insertNewHero = (req, res) => {
 };
 
 export const updateHero = (req, res) => {
-    if (req.params.id * 1 > heroes.length) {
-        return res.status(404).json({ status: "fail", message: "Invalid ID" });
-    }
-
     res.status(200).json({
         status: "success",
         data: {
@@ -49,10 +49,6 @@ export const updateHero = (req, res) => {
 };
 
 export const deleteHero = (req, res) => {
-    if (req.params.id * 1 > heroes.length) {
-        return res.status(404).json({ status: "fail", message: "Invalid ID" });
-    }
-
     res.status(204).json({
         status: "success",
         data: null,
