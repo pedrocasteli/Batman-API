@@ -1,16 +1,33 @@
 import Hero from "../models/heroModel.js";
 
-export const getAllHeroes = (req, res) => {
-    res.status(200).json({
-        status: "success",
-        requestedAt: req.requestTime,
-    });
+export const getAllHeroes = async (req, res) => {
+    try {
+        const heroes = await Hero.find();
+
+        res.status(200).json({
+            status: "success",
+            results: heroes.length,
+            data: { heroes: heroes },
+        });
+    } catch (e) {
+        res.status(404).json({ status: "fail", message: e });
+    }
 };
 
-export const getHero = (req, res) => {
-    res.status(200).json({
-        status: "success",
-    });
+export const getHero = async (req, res) => {
+    try {
+        const hero = await Hero.findById(req.params.id);
+        // Hero.findOne({_id: req.params.id})
+        res.status(200).json({
+            status: "success",
+            data: { hero: hero },
+        });
+    } catch (e) {
+        res.status(404).json({
+            status: "fail",
+            message: e,
+        });
+    }
 };
 
 export const insertNewHero = async (req, res) => {
