@@ -1,1 +1,23 @@
-[{"id":1,"name":"Batman","real_name":"Bruce Wayne","gender":"male","base_of_operations":"Gotham City"},{"id":2,"name":"Catwoman","real_name":"Selina Kyle","gender":"female","base_of_operations":"Gotham City"},{"id":3,"name":"Batgirl","real_name":"Barbara Gordon","gender":"female","base_of_operations":"Gotham City"},{"id":4,"name":"Nightwing","real_name":"Dick Grayson","gender":"male","base_of_operation":"Gotham City"}]
+[
+    {
+        "id": 1,
+        "name": "Batman",
+        "real_name": "Bruce Wayne",
+        "gender": "male",
+        "base_of_operations": "Gotham City"
+    },
+    {
+        "id": 2,
+        "name": "Catwoman",
+        "real_name": "Selina Kyle",
+        "gender": "female",
+        "base_of_operations": "Gotham City"
+    },
+    {
+        "id": 3,
+        "name": "Batgirl",
+        "real_name": "Barbara Gordon",
+        "gender": "female",
+        "base_of_operations": "Gotham City"
+    }
+]

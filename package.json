@@ -2,10 +2,10 @@
     "name": "batman-api",
     "version": "1.0.0",
     "description": "A Node.js Back-End application built with Express.js and Mongoose, using MongoDB to store data.",
-    "main": "app.js",
+    "main": "server.js",
     "type": "module",
     "scripts": {
-        "test": "echo \"Error: no test specified\" && exit 1"
+        "start": "nodemon server.js"
     },
     "repository": {
         "type": "git",
@@ -30,5 +30,8 @@
         "dotenv": "^16.0.1",
         "express": "^4.18.1",
         "morgan": "^1.10.0"
+    },
+    "devDependencies": {
+        "nodemon": "^2.0.19"
     }
 }
