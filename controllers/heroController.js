@@ -10,6 +10,20 @@ export const checkID = (req, res, next, val) => {
     next();
 };
 
+export const checkBody = (req, res, next) => {
+    if (
+        !req.body.name ||
+        !req.body.real_name ||
+        !req.body.gender ||
+        !req.body.base_of_operation
+    ) {
+        return res
+            .status(400)
+            .send({ status: "fail", message: "Invalid request body" });
+    }
+    next();
+};
+
 export const getAllHeroes = (req, res) => {
     res.status(200).json({
         status: "success",
