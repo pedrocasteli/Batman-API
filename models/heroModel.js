@@ -5,7 +5,7 @@ const heroSchema = new mongoose.Schema({
         type: String,
         required: [
             true,
-            "How can a hero exist without a name that strikes fear into the hearts of enemies?",
+            "How can a hero exist without a name that strikes fear into the hearts of the bad guys?",
         ],
         unique: true,
     },
@@ -18,6 +18,17 @@ const heroSchema = new mongoose.Schema({
     },
     gender: { type: String, default: "Unknown/Irrelevant" },
     base_of_operation: { type: String, default: "Unknown/Irrelevant" },
+    images: [String],
+    origins: {
+        creators: {
+            type: Array,
+        },
+        first_appearance: {
+            type: Date,
+        },
+        media_type: { type: String, default: "Unknown" },
+        backstory: { type: String, trim: true, default: "Unknown" },
+    },
 });
 
 const Hero = mongoose.model("Heroes", heroSchema);
