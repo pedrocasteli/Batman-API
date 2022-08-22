@@ -40,13 +40,21 @@ export const insertNewHero = async (req, res) => {
     }
 };
 
-export const updateHero = (req, res) => {
-    res.status(200).json({
-        status: "success",
-        data: {
-            hero: "<Updated hero here>",
-        },
-    });
+export const updateHero = async (req, res) => {
+    try {
+        const hero = await Hero.findByIdAndUpdate(req.params.id, req.body, {
+            new: true,
+            runValidators: true,
+        });
+        res.status(200).json({
+            status: "success",
+            data: {
+                hero: hero,
+            },
+        });
+    } catch (e) {
+        res.status(400).json({ status: "fail", message: e });
+    }
 };
 
 export const deleteHero = (req, res) => {
