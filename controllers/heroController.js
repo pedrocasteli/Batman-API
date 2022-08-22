@@ -57,9 +57,14 @@ export const updateHero = async (req, res) => {
     }
 };
 
-export const deleteHero = (req, res) => {
-    res.status(204).json({
-        status: "success",
-        data: null,
-    });
+export const deleteHero = async (req, res) => {
+    try {
+        await Hero.findByIdAndDelete(req.params.id);
+        res.status(204).json({
+            status: "success",
+            data: null,
+        });
+    } catch (e) {
+        res.status(400).json({ status: "fail", message: e });
+    }
 };
