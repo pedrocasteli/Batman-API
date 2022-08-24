@@ -2,7 +2,18 @@ import Hero from "../models/heroModel.js";
 
 export const getAllHeroes = async (req, res) => {
     try {
-        const heroes = await Hero.find();
+        // BUILD QUETY
+        const queryObj = { ...req.query };
+        const excludedFields = ["page", "sort", "limit", "fields"];
+
+        excludedFields.forEach((el) => delete queryObj[el]);
+
+        const query = Hero.find(queryObj);
+
+        // const quey = await Hero.find().where("gender").equals("female");
+
+        // EXECUTE QUERY
+        const heroes = await query;
 
         res.status(200).json({
             status: "success",

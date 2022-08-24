@@ -1,8 +1,5 @@
 import express from "express";
 import morgan from "morgan";
-import dotenv from "dotenv";
-
-dotenv.config({ path: "./.env" });
 
 import heroRouter from "./routes/heroRoutes.js";
 import villainRouter from "./routes/villainRoutes.js";
